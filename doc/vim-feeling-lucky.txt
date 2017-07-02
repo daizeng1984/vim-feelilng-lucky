@@ -1,0 +1,19 @@
+*vim-feeling-lucky.txt* A template of a remote Python plugin.
+
+                  Feeling Lucky Remote Python Plugin
+
+==============================================================================
+
+CONTENTS                                 *vim-feeling-lucky-contents*
+
+    1. Introduction .................... |vim-feeling-lucky-intro|
+
+
+Original Author:    Zeng Dai
+License:            The Unlicense
+
+INTRODUCTION                                *vim-feeling-lucky-intro*
+
+A very simple remote Python plugin that grab Google's feeling lucky url from 
+internet Neovim.
+
