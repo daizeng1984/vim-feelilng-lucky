@@ -1,5 +1,5 @@
 import neovim
-import requests
+from googleapiclient.discovery import build
 
 @neovim.plugin
 class Main(object):
@@ -27,9 +27,20 @@ class Main(object):
         self.vim.current.line = self.updateLine(currentline, word, 1)
     def updateLine(self, line, word, maxnum):
         if word in line:
+            self.service = build( 
+                "customsearch", "v1",
+                developerKey="AIzaSyCYtnzDWqzPYE6LTtNyuxEZ6pLy6DCkysQ")
+            
+            res = self.service.cse().list(
+                    q=word,
+                    cx='014324005263008877010:zmwtfjahkfe',
+                    ).execute()
+            url = ""
+            if res :
+                url = res.get('items', [{'link':''}])[0].get('link')
+
             # get url
-            var = requests.get(r'http://www.google.com/search?q="' + word + '"&btnI&pws=0&gl=us&gws_rd=cr')
-            line = line.replace(word, '[' + word + '](' + var.url + ')', maxnum)
+            line = line.replace(word, '[' + word + '](' + url + ')', maxnum)
             #self.vim.command('echo "' + word + ", " + var.url + ", " + line + '"') # + args[0] + '"')
         return line
 
