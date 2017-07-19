@@ -3,7 +3,7 @@ I feel I need a quick keyword linking tools in Vim so that I could keep writing 
 
 ## Install
 ```
-Plug 'daizeng1984/vim-feeling-lucky'
+Plug 'daizeng1984/vim-feeling-lucky', {'do': 'pip3 install --upgrade google-api-python-client' }
 ```
 As all Python remote plugins, after you `PlugInstall`, you need to run `:UpdateRemotePlugins`.
 
