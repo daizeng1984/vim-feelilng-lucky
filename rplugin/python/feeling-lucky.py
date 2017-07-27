@@ -13,9 +13,7 @@ class Main(object):
         (lnum2, col2) = buf.mark('>')
         lines = self.vim.eval('getline({}, {})'.format(lnum1, lnum2))
         word = ""
-        if not lines :
-            word = self.vim.eval('expand("<cword>")') 
-        else:
+        if lines :
             # Quick fix...
             if len(lines) > 1 :
                 lines[0] = lines[0][col1:]
@@ -23,6 +21,9 @@ class Main(object):
                 word = "\n".join(lines)
             else:
                 word = lines[0][col1:col2]
+        # Be smart
+        if not word:
+            word = self.vim.eval('expand("<cword>")') 
         currentline = self.vim.current.line 
         self.vim.current.line = self.updateLine(currentline, word, 1)
     def updateLine(self, line, word, maxnum):
