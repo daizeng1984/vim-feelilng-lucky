@@ -8,7 +8,7 @@ Plug 'daizeng1984/vim-feeling-lucky', {'do': 'pip3 install --upgrade google-api-
 As all Python remote plugins, after you `PlugInstall`, you need to run `:UpdateRemotePlugins`.
 
 ## How
-Put your cursor on the word and make command `:FeelingLuckyReflink` and you're done.
+Put your cursor on the word or select in visual mode, then make call `:FeelingLuckyReflink` and you're done.
 
 ```
 Jekyll --> [Jekyll](https://jekyllrb.com/)
