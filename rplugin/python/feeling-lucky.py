@@ -88,11 +88,12 @@ class Main(object):
     def luckyEveryWhere(self, args):
         d = self.luckyStay.getAll()
         i = 0
+        # TODO: better to find all 
         taboo = []
         for l in self.vim.current.buffer:
             taboo = taboo + list(re.findall(r"(?:[[\s]*)([\S]+)(?:[\s]*])(?:[\s]*\([^)]*\))", l))
         for t in taboo:
-            d.pop(t) 
+            d.pop(t, None) 
         #self.vim.command('echo "lucky everywhere: ' + str(d) + '"')
         
         for l in self.vim.current.buffer:
@@ -101,7 +102,7 @@ class Main(object):
             #self.vim.command('echo "lucky everywhere: ' + str(l) + '"')
             if l != self.vim.current.buffer[i]:
                 self.vim.current.buffer[i] = l;
-                d.pop(word)
+                d.pop(word, None)
             i = i + 1
 
 
