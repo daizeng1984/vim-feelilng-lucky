@@ -10,8 +10,6 @@ As all Python remote plugins, after you `PlugInstall`, you need to run `:UpdateR
 ## How
 Put your cursor on the word or select in visual mode, then make call `:FeelingLuckyReflink` and you're done.
 
-```
-Jekyll --> [Jekyll](https://jekyllrb.com/)
-```
+![Feeling Lucky](./misc/feeling-lucky.gif "Feeling Lucky!")
 
 # TODO
